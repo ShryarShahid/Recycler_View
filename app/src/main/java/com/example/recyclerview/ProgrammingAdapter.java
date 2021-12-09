@@ -1,7 +1,10 @@
 package com.example.recyclerview;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,12 +20,15 @@ public class ProgrammingAdapter extends RecyclerView.Adapter<ProgrammingAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater inflater=LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.list_item_layout, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+    String title = data[position];
+    holder.textView.setText(title);
     }
 
     @Override
@@ -31,8 +37,16 @@ public class ProgrammingAdapter extends RecyclerView.Adapter<ProgrammingAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(@NonNull View itemView) {
+        ImageView imageView;
+        TextView textView;
+        public ViewHolder(@NonNull View itemView)
+        {
             super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            textView = (TextView) itemView.findViewById(R.id.textview);
+
         }
     }
+
+
 }
