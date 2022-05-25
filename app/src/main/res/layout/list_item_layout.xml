@@ -32,3 +32,4 @@
         app:layout_constraintStart_toEndOf="@+id/imageView">
 
     </TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>
